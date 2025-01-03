@@ -18,3 +18,6 @@ testing same line
 # Next: Add Theme
 
 test add theme
+
+name: test site name
+theme: minima
