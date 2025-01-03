@@ -16,3 +16,5 @@ testing same line
 # Next: Add Theme
 
 test add theme
+
+Update automatically?
