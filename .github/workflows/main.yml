@@ -1,0 +1,40 @@
+from selenium import webdriver
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+import time
+
+# Setup WebDriver for Firefox
+def setup_driver():
+    # Set path to your geckodriver if it's not in your PATH
+    # driver_path = 'C:\Users\burob\Selenium practice\gecko'  
+    # options = webdriver.FirefoxOptions()
+    # options.headless = False  # Set to True to run Firefox in headless mode
+    # driver = webdriver.Firefox(executable_path=driver_path, options=options)
+    # driver.implicitly_wait(10)  # Wait for elements to load
+    # return driver
+
+    # Set up Firefox driver with WebDriver Manager
+    service = Service(GeckoDriverManager().install())
+    self.driver = webdriver.Firefox(service=service)
+    self.driver.maximize_window()
+
+# Example functional test case: Button click action
+def test_button_click():
+    self.driver = setup_driver()
+    driver.get('https://demoqa.com/buttons')  # webpage URL
+
+    # Find and click a button
+    button = driver.find_element(By.ID, '5Zw93')  # ID 
+    button.click()
+
+    # Verify the result after the button click
+    time.sleep(2)
+    confirmation_message = driver.find_element(By.ID, 'dynamicClickMessage')
+    assert confirmation_message.text == 'Action Successful', 'Button click did not work as expected'
+
+    print('Test passed: Button click works as expected.')
+    driver.quit()
+
+    # Run the test cases
