@@ -1,40 +1,45 @@
+# fills boxes and Submits
 from selenium import webdriver
-from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
+
 import time
 
-# Setup WebDriver for Firefox
-def setup_driver():
-    # Set path to your geckodriver if it's not in your PATH
-    # driver_path = 'C:\Users\burob\Selenium practice\gecko'  
-    # options = webdriver.FirefoxOptions()
-    # options.headless = False  # Set to True to run Firefox in headless mode
-    # driver = webdriver.Firefox(executable_path=driver_path, options=options)
-    # driver.implicitly_wait(10)  # Wait for elements to load
-    # return driver
+driver = webdriver.Firefox()
+driver.maximize_window()
+driver.get("https://demoqa.com/text-box")
 
-    # Set up Firefox driver with WebDriver Manager
-    service = Service(GeckoDriverManager().install())
-    self.driver = webdriver.Firefox(service=service)
-    self.driver.maximize_window()
+username = driver.find_element(By.ID,"userName").send_keys("Tara Li")
 
-# Example functional test case: Button click action
-def test_button_click():
-    self.driver = setup_driver()
-    driver.get('https://demoqa.com/buttons')  # webpage URL
+time.sleep(2)
+# driver.quit()
 
-    # Find and click a button
-    button = driver.find_element(By.ID, '5Zw93')  # ID 
-    button.click()
+#------
 
-    # Verify the result after the button click
-    time.sleep(2)
-    confirmation_message = driver.find_element(By.ID, 'dynamicClickMessage')
-    assert confirmation_message.text == 'Action Successful', 'Button click did not work as expected'
+email = driver.find_element(By.ID, "userEmail").send_keys("tests@testy.com")
 
-    print('Test passed: Button click works as expected.')
-    driver.quit()
+time.sleep(2)
+# driver.quit()
 
-    # Run the test cases
+#------
+
+currentaddress = driver.find_element(By.ID, "currentAddress").send_keys("12345 S Ave")
+
+time.sleep(2)
+# driver.quit()
+
+#------
+
+permaddress = driver.find_element(By.ID, "permanentAddress").send_keys("98765 N Blvd")
+
+time.sleep(2)
+# driver.quit()
+
+#------
+
+#click the submit button
+
+button = driver.find_element(By.ID, "submit")
+button.click()
+
+driver.quit()
+
