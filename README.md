@@ -6,8 +6,20 @@ Interactive Excel Dashboard - Patient Satisfaction, Orthopedics, 2023
 
 # SQL Projects
 Analyzing Industry Carbon Emissions [SQL]
+SELECT 
+    industry_group, 
+    COUNT(DISTINCT company) AS num_companies, 
+    ROUND(SUM(carbon_footprint_pcf), 1) AS total_industry_footprint
+FROM 
+    product_emissions
+WHERE 
+    year = (SELECT MAX(year) FROM product_emissions)
+GROUP BY 
+    industry_group
+ORDER BY 
+    total_industry_footprint DESC;
 
-
+# Next
 coding read me
 previous: test no code
 
